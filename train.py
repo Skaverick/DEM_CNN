@@ -1,6 +1,8 @@
 from functions import *
 from core import *
 
+
+autoencoder_model, tensorboard_callback = autoencoder()
 high_res_folder = "/data/200_512_cleared/"
 low_res_folder = "/data/1000_512_cleared/" 
 modelpath = "/models/"
@@ -43,12 +45,12 @@ class VisualizationCallback(keras.callbacks.Callback):
         fig.colorbar(im2, ax=axes[2], orientation='vertical')
 
         fig.tight_layout()
-        plt.savefig("/kaggle/working/vis/vis_epoch_"+str(epoch+1)+".png")
+        plt.savefig("/vis/vis_epoch_"+str(epoch+1)+".png")
         plt.close()
         
         pred_test_image1 = autoencoder_model.predict(self.test_im1)
         im1 = Image.fromarray(pred_test_image1[0, :, :, 0], mode='F')
-        im1.save('/kaggle/working/autorun_test/avtoencoder_'+str(epoch+1)+'.tif')
+        im1.save('/autorun_test/avtoencoder_'+str(epoch+1)+'.tif')
         
         pred_test_image2 = autoencoder_model.predict(self.test_im2)
         im2 = Image.fromarray(pred_test_image2[0, :, :, 0], mode='F')
@@ -58,7 +60,7 @@ class VisualizationCallback(keras.callbacks.Callback):
         
     
     if __name__ == "__main__":
-        autoencoder_model, tensorboard_callback = autoencoder()
+        
         # autoencoder_model = load_model(modelpath + modelname) #If it already exists
 
         # high_res = preparing_data(high_res_folder) 
@@ -66,6 +68,7 @@ class VisualizationCallback(keras.callbacks.Callback):
 
         high_res = prepare_and_augment_data(high_res_folder)  
         low_res = prepare_and_augment_data(low_res_folder) 
+        
         test1_image = preparing_largedata('/kaggle/input/dem-test/data_full_test')
         test2_image = preparing_largedata('/kaggle/input/dem-test/test')
 

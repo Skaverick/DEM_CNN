@@ -18,7 +18,6 @@ from keras.layers import Input, Conv2D, MaxPooling2D, UpSampling2D, BatchNormali
 from keras.models import Model
 
 import tensorflow as tf
-import tensorflow_addons as tfa
 from keras.layers import Input, Conv2D, MaxPooling2D, UpSampling2D, BatchNormalization, Activation, add
 
 from keras.models import Model
@@ -27,8 +26,6 @@ from tensorflow.keras.callbacks import ReduceLROnPlateau
 from tensorflow.keras.callbacks import TensorBoard
 import time
 import datetime
-
-
 
 def listdir_nohidden(path):
     lst = []

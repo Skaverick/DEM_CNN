@@ -18,8 +18,8 @@ def custom_loss(y_true, y_pred):
     laplacian_loss = tf.reduce_mean(tf.square(laplacian_true - laplacian_pred))
     
     # Расчет гистограмм
-    hist_true = tf.histogram_fixed_width(y_true, [0, 1], nbins=10)
-    hist_pred = tf.histogram_fixed_width(y_pred, [0, 1], nbins=10)
+    hist_true = tf.histogram_fixed_width(y_true, [0, 1], nbins=20)
+    hist_pred = tf.histogram_fixed_width(y_pred, [0, 1], nbins=20)
     
     # Приведение типов гистограмм к float32
     hist_true = tf.cast(hist_true, tf.float32)
