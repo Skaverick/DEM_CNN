@@ -9,7 +9,7 @@ Git repo description:
     - trained models - folder with pre-trained models
     
 Code:
-    core.py - core of Convolutional Autoencoder
-    functions.py - library of different functions: preparing data, getting list of tif files in folder
-    train.py - script for training model
-    split_image_tool.py - pyscript for splitting images for tiles
+    - core.py - core of Convolutional Autoencoder
+    - functions.py - library of different functions: preparing data, getting list of tif files in folder
+    - train.py - script for training model
+    - split_image_tool.py - pyscript for splitting images for tiles
